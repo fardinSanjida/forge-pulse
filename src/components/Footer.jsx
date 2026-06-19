@@ -31,7 +31,7 @@ const socialLinks = [
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden border-t border-orange-300/30 bg-neutral-950 text-white">
+    <footer className="relative overflow-hidden border-t-9 border-orange-300 rounded-2xl bg-neutral-950 text-white">
       <Image
         src={footerBackground}
         alt=""
