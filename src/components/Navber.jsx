@@ -2,15 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import logo from "../../asset/logo.png";
+import { signOut, useSession } from "@/lib/auth-client";
 
-const demoUser = {
-  name: "Alex Carter",
-  role: "student",
-  image:
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%23fff3d1'/%3E%3Ccircle cx='48' cy='37' r='18' fill='%23ff7a00'/%3E%3Cpath d='M20 84c5-19 18-29 28-29s23 10 28 29' fill='%238a5a2b'/%3E%3C/svg%3E",
-};
+const fallbackProfileImage =
+  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%23fff3d1'/%3E%3Ccircle cx='48' cy='37' r='18' fill='%23ff7a00'/%3E%3Cpath d='M20 84c5-19 18-29 28-29s23 10 28 29' fill='%238a5a2b'/%3E%3C/svg%3E";
 
 const baseLinks = [
   { label: "Home", href: "/" },
@@ -30,8 +28,12 @@ function getDashboardHref(role) {
 }
 
 function Navber() {
+  const router = useRouter();
+  const { data: session, refetch } = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
+  const currentUser = session?.user;
+  const profileImage = currentUser?.image || fallbackProfileImage;
+  const profileName = currentUser?.name || currentUser?.email || "User";
 
   const navigationLinks = useMemo(() => {
     if (!currentUser) {
@@ -49,9 +51,12 @@ function Navber() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  const handleAuthAction = () => {
-    setCurrentUser((user) => (user ? null : demoUser));
+  const handleLogout = async () => {
+    await signOut();
+    await refetch();
     closeMenu();
+    router.push("/");
+    router.refresh();
   };
 
   return (
@@ -90,25 +95,22 @@ function Navber() {
         <div className="hidden items-center gap-3 lg:flex">
           {currentUser ? (
             <>
-              <Link
-                href="/profile"
-                className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 py-1 pl-1 pr-3 text-sm font-medium text-white/85 transition hover:border-orange-300/50 hover:text-orange-300/80"
-              >
+              <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 py-1 pl-1 pr-3 text-sm font-medium text-white/85">
                 <span className="relative h-9 w-9 overflow-hidden rounded-full bg-orange-100">
                   <Image
-                    src={currentUser.image}
-                    alt={`${currentUser.name} profile picture`}
+                    src={profileImage}
+                    alt={`${profileName} profile picture`}
                     fill
                     sizes="36px"
                     className="object-cover"
                     unoptimized
                   />
                 </span>
-                <span>{currentUser.name}</span>
-              </Link>
+                <span>{profileName}</span>
+              </div>
               <button
                 type="button"
-                onClick={handleAuthAction}
+                onClick={handleLogout}
                 className="rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
               >
                 Logout
@@ -177,15 +179,13 @@ function Navber() {
           <div className="mx-auto mt-4 flex max-w-7xl items-center justify-end gap-3 border-t border-orange-300/50 pt-4">
             {currentUser ? (
               <>
-                <Link
-                  href="/profile"
-                  onClick={closeMenu}
+                <div
                   className="mr-auto flex min-w-0 items-center gap-3"
                 >
                   <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-orange-100">
                     <Image
-                      src={currentUser.image}
-                      alt={`${currentUser.name} profile picture`}
+                      src={profileImage}
+                      alt={`${profileName} profile picture`}
                       fill
                       sizes="44px"
                       className="object-cover"
@@ -193,12 +193,12 @@ function Navber() {
                     />
                   </span>
                   <span className="block min-w-0 truncate text-sm font-semibold text-white">
-                    {currentUser.name}
+                    {profileName}
                   </span>
-                </Link>
+                </div>
                 <button
                   type="button"
-                  onClick={handleAuthAction}
+                  onClick={handleLogout}
                   className="shrink-0 rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
                 >
                   Logout

@@ -74,9 +74,8 @@ export default function RegisterPage() {
         setError(response.error.message || "Unable to create your account.");
         return;
       }
-      
-      else
-      {toast.success("Registration completed successfully!");}
+
+      toast.success("Registration completed successfully!");
 
       setTimeout(() => {
         router.push(response?.data?.url || intendedRoute);

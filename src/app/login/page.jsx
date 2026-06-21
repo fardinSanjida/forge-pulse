@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import backgroundImage from "../../../asset/footer-background.jpg";
 import loginImage from "../../../asset/image11.jpg";
 import logo from "../../../asset/logo.png";
@@ -59,7 +61,10 @@ function LoginForm() {
         return;
       }
 
-      redirectAfterLogin(response?.data?.url || intendedRoute);
+      toast.success("Login completed successfully!");
+      setTimeout(() => {
+        redirectAfterLogin(response?.data?.url || intendedRoute);
+      }, 1400);
     } catch {
       setError("Unable to sign in. Please try again.");
     } finally {
@@ -89,7 +94,10 @@ function LoginForm() {
         return;
       }
 
-      redirectAfterLogin();
+      toast.success("Login completed successfully!");
+      setTimeout(() => {
+        redirectAfterLogin();
+      }, 1400);
     } catch {
       setError("Unable to continue with Google. Please try again.");
     } finally {
@@ -98,21 +106,22 @@ function LoginForm() {
   };
 
   return (
-    <section className="relative isolate min-h-screen overflow-hidden bg-[#030d0d] px-5 py-10 text-white sm:px-8 lg:px-12">
-      <div className="absolute inset-0 -z-20 opacity-50">
-        <Image
-          src={backgroundImage}
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover"
-          priority
-        />
-      </div>
-      <div className="absolute inset-0 -z-10 bg-[#031010]/85" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(255,87,24,0.16),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(255,87,24,0.24),transparent_32%)]" />
+    <>
+      <section className="relative isolate min-h-screen overflow-hidden bg-[#030d0d] px-5 py-10 text-white sm:px-8 lg:px-12">
+        <div className="absolute inset-0 -z-20 opacity-50">
+          <Image
+            src={backgroundImage}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 -z-10 bg-[#031010]/85" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(255,87,24,0.16),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(255,87,24,0.24),transparent_32%)]" />
 
-      <div className="mx-auto grid min-h-[calc(100vh-5rem)] w-full max-w-6xl items-center gap-10 lg:grid-cols-[0.86fr_1.14fr]">
+        <div className="mx-auto grid min-h-[calc(100vh-5rem)] w-full max-w-6xl items-center gap-10 lg:grid-cols-[0.86fr_1.14fr]">
         <div className="mx-auto w-full max-w-97.5 lg:ml-auto">
           <Link href="/" className="mb-14 inline-flex items-center gap-3">
             <span className="relative block h-12 w-40">
@@ -213,8 +222,19 @@ function LoginForm() {
             priority
           />
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+      <ToastContainer
+        position="top-right"
+        autoClose={1400}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnFocusLoss={false}
+        pauseOnHover
+        theme="dark"
+      />
+    </>
   );
 }
 
