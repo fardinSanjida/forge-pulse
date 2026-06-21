@@ -31,7 +31,7 @@ function getDashboardHref(role) {
 
 function Navber() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentUser, setCurrentUser] = useState(demoUser);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const navigationLinks = useMemo(() => {
     if (!currentUser) {
@@ -88,31 +88,40 @@ function Navber() {
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
-          {currentUser && (
+          {currentUser ? (
+            <>
+              <Link
+                href="/profile"
+                className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 py-1 pl-1 pr-3 text-sm font-medium text-white/85 transition hover:border-orange-300/50 hover:text-orange-300/80"
+              >
+                <span className="relative h-9 w-9 overflow-hidden rounded-full bg-orange-100">
+                  <Image
+                    src={currentUser.image}
+                    alt={`${currentUser.name} profile picture`}
+                    fill
+                    sizes="36px"
+                    className="object-cover"
+                    unoptimized
+                  />
+                </span>
+                <span>{currentUser.name}</span>
+              </Link>
+              <button
+                type="button"
+                onClick={handleAuthAction}
+                className="rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
             <Link
-              href="/profile"
-              className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 py-1 pl-1 pr-3 text-sm font-medium text-white/85 transition hover:border-orange-300/50 hover:text-orange-300/80"
+              href="/login"
+              className="rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
             >
-              <span className="relative h-9 w-9 overflow-hidden rounded-full bg-orange-100">
-                <Image
-                  src={currentUser.image}
-                  alt={`${currentUser.name} profile picture`}
-                  fill
-                  sizes="36px"
-                  className="object-cover"
-                  unoptimized
-                />
-              </span>
-              <span>{currentUser.name}</span>
+              Login
             </Link>
           )}
-          <button
-            type="button"
-            onClick={handleAuthAction}
-            className="rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
-          >
-            {currentUser ? "Logout" : "Login"}
-          </button>
         </div>
 
         <button
@@ -165,43 +174,45 @@ function Navber() {
             ))}
           </ul>
 
-          <div className="mx-auto mt-4 flex max-w-7xl items-center justify-between gap-3 border-t border-orange-300/50 pt-4">
+          <div className="mx-auto mt-4 flex max-w-7xl items-center justify-end gap-3 border-t border-orange-300/50 pt-4">
             {currentUser ? (
-              <Link
-                href="/profile"
-                onClick={closeMenu}
-                className="flex min-w-0 items-center gap-3"
-              >
-                <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-orange-100">
-                  <Image
-                    src={currentUser.image}
-                    alt={`${currentUser.name} profile picture`}
-                    fill
-                    sizes="44px"
-                    className="object-cover"
-                    unoptimized
-                  />
-                </span>
-                <span className="min-w-0">
-                  <span className="block truncate text-sm font-semibold text-white">
+              <>
+                <Link
+                  href="/profile"
+                  onClick={closeMenu}
+                  className="mr-auto flex min-w-0 items-center gap-3"
+                >
+                  <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-orange-100">
+                    <Image
+                      src={currentUser.image}
+                      alt={`${currentUser.name} profile picture`}
+                      fill
+                      sizes="44px"
+                      className="object-cover"
+                      unoptimized
+                    />
+                  </span>
+                  <span className="block min-w-0 truncate text-sm font-semibold text-white">
                     {currentUser.name}
                   </span>
-                  <span className="block text-xs capitalize text-white/55">
-                    {currentUser.role}
-                  </span>
-                </span>
-              </Link>
+                </Link>
+                <button
+                  type="button"
+                  onClick={handleAuthAction}
+                  className="shrink-0 rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
+                >
+                  Logout
+                </button>
+              </>
             ) : (
-              <span className="text-sm text-white/60">Welcome to Forge Pulse</span>
+              <Link
+                href="/login"
+                onClick={closeMenu}
+                className="shrink-0 rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
+              >
+                Login
+              </Link>
             )}
-
-            <button
-              type="button"
-              onClick={handleAuthAction}
-              className="shrink-0 rounded-md bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
-            >
-              {currentUser ? "Logout" : "Login"}
-            </button>
           </div>
         </div>
       )}
