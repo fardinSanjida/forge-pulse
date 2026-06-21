@@ -1,6 +1,7 @@
 import AboutUs from "@/components/AboutUs";
 import BannerSection from "@/components/BannerSection";
 import FeatureClasses from "@/components/FeatureClasses";
+import Forum from "@/components/Forum";
 import Process from "@/components/Process";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <AboutUs />
       <FeatureClasses />
       <Process />
+      <Forum />
     </div>
   );
 }

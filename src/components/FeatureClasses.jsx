@@ -16,7 +16,7 @@ function FeatureClasses() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-[#1d2027] px-4 py-20 text-white sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-black px-4 py-20 text-white sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-4xl">

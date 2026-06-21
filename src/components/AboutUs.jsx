@@ -18,7 +18,7 @@ const highlights = [
 
 function StatStrip({ reverse = false }) {
   return (
-    <div className="overflow-hidden border-y border-black bg-white py-3 text-black">
+    <div className="relative z-10 overflow-hidden border-y border-black bg-white py-3 text-black">
       <div
         className={`stat-strip-track flex w-max min-w-full items-center gap-8 px-6 text-sm font-black uppercase tracking-wide sm:text-base ${
           reverse ? "stat-strip-track-reverse" : ""
@@ -66,12 +66,14 @@ function StatStrip({ reverse = false }) {
 
 function AboutUs() {
   return (
-    <section className="bg-black text-white">
+    <section className="relative overflow-hidden bg-black text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_28%,rgba(249,115,22,0.28),transparent_30%),radial-gradient(circle_at_78%_45%,rgba(249,115,22,0.2),transparent_32%),radial-gradient(circle_at_50%_100%,rgba(194,65,12,0.2),transparent_36%)]" />
+
       <StatStrip />
 
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
         <div className="relative mx-auto min-h-[430px] w-full max-w-[600px]">
-          <div className="absolute left-6 top-0 h-72 w-[58%] overflow-hidden rounded-tl-[5rem] rounded-tr-sm rounded-br-sm rounded-bl-sm sm:left-8 sm:h-80">
+          <div className="absolute left-20 top-0 h-72 w-[58%] overflow-hidden rounded-tl-[5rem] rounded-tr-sm rounded-br-sm rounded-bl-sm sm:left-8 sm:h-80">
             <Image
               src={hero2}
               alt="Athletes training with dumbbells"
@@ -81,7 +83,7 @@ function AboutUs() {
             />
           </div>
 
-          <div className="absolute right-4 top-20 h-72 w-[58%] overflow-hidden rounded-bl-[5rem] rounded-sm sm:h-80">
+          <div className="absolute right-1 top-20 h-72 w-[58%] overflow-hidden rounded-br-[5rem] rounded-sm sm:h-80">
             <Image
               src={strengthImage}
               alt="Athlete doing strength training"
