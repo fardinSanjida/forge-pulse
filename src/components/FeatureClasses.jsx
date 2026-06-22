@@ -3,18 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { getTopFeatureClasses } from "@/lib/feature-classes";
-import { useSession } from "@/lib/auth-client";
 
 const topClasses = getTopFeatureClasses(3);
 
 function FeatureClasses() {
-  const { data: session } = useSession();
-  const isLoggedIn = Boolean(session?.user);
-
-  const handleLockedViewAll = () => {
-    alert("Please log in first to view all classes.");
-  };
-
   return (
     <section className="relative overflow-hidden bg-black px-4 py-20 text-white sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -32,22 +24,12 @@ function FeatureClasses() {
           </div>
 
           <div className="flex shrink-0">
-            {isLoggedIn ? (
-              <Link
-                href="/classes"
-                className="inline-flex items-center justify-center rounded-full bg-orange-500 px-6 py-3 text-sm font-bold uppercase text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
-              >
-                View All
-              </Link>
-            ) : (
-              <button
-                type="button"
-                onClick={handleLockedViewAll}
-                className="inline-flex items-center justify-center rounded-full bg-orange-500 px-6 py-3 text-sm font-bold uppercase text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
-              >
-                View All
-              </button>
-            )}
+            <Link
+              href="/classes"
+              className="inline-flex items-center justify-center rounded-full bg-orange-500 px-6 py-3 text-sm font-bold uppercase text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
+            >
+              View All
+            </Link>
           </div>
         </div>
 
@@ -55,7 +37,7 @@ function FeatureClasses() {
           {topClasses.map((classItem) => (
             <article
               key={classItem.id}
-              className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] shadow-2xl shadow-black/25"
+              className="group overflow-hidden rounded-3xl border border-white/10 bg-white/3 shadow-2xl shadow-black/25"
             >
               <div className="relative h-72 overflow-hidden">
                 <Image
@@ -65,7 +47,7 @@ function FeatureClasses() {
                   sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/35 to-transparent" />
                 <span className="absolute left-5 top-5 rounded-full bg-orange-500 px-4 py-2 text-xs font-bold uppercase tracking-wide text-white">
                   {classItem.category}
                 </span>

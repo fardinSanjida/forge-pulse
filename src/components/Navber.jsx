@@ -13,7 +13,7 @@ const fallbackProfileImage =
 const baseLinks = [
   { label: "Home", href: "/" },
   { label: "All Classes", href: "/classes" },
-  { label: "Community Forum", href: "/community", requiresAuth: true },
+  { label: "Community Forum", href: "/community" },
 ];
 
 const dashboardRoutes = {
@@ -51,11 +51,6 @@ function Navber() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  const handleLockedCommunityForum = () => {
-    alert("Please log in first to view the community forum.");
-    closeMenu();
-  };
-
   const handleLogout = async () => {
     await signOut();
     await refetch();
@@ -87,22 +82,12 @@ function Navber() {
         <ul className="hidden items-center gap-1 lg:flex">
           {navigationLinks.map((link) => (
             <li key={link.href}>
-              {link.requiresAuth && !currentUser ? (
-                <button
-                  type="button"
-                  onClick={handleLockedCommunityForum}
-                  className="rounded-md px-4 py-2 text-sm font-medium text-white/75 transition hover:bg-white/10 hover:text-orange-300/80"
-                >
-                  {link.label}
-                </button>
-              ) : (
-                <Link
-                  href={link.href}
-                  className="rounded-md px-4 py-2 text-sm font-medium text-white/75 transition hover:bg-white/10 hover:text-orange-300/80"
-                >
-                  {link.label}
-                </Link>
-              )}
+              <Link
+                href={link.href}
+                className="rounded-md px-4 py-2 text-sm font-medium text-white/75 transition hover:bg-white/10 hover:text-orange-300/80"
+              >
+                {link.label}
+              </Link>
             </li>
           ))}
         </ul>
@@ -180,23 +165,13 @@ function Navber() {
           <ul className="mx-auto flex max-w-7xl flex-col gap-1">
             {navigationLinks.map((link) => (
               <li key={link.href}>
-                {link.requiresAuth && !currentUser ? (
-                  <button
-                    type="button"
-                    onClick={handleLockedCommunityForum}
-                    className="block w-full rounded-md px-3 py-3 text-left text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
-                  >
-                    {link.label}
-                  </button>
-                ) : (
-                  <Link
-                    href={link.href}
-                    onClick={closeMenu}
-                    className="block rounded-md px-3 py-3 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                )}
+                <Link
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="block rounded-md px-3 py-3 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
+                >
+                  {link.label}
+                </Link>
               </li>
             ))}
           </ul>

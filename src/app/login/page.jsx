@@ -9,6 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 import backgroundImage from "../../../asset/footer-background.jpg";
 import loginImage from "../../../asset/image11.jpg";
 import logo from "../../../asset/logo.png";
+import {Description, Label, Radio, RadioGroup} from "@heroui/react";
+
 
 function getIntendedRoute() {
   if (typeof window === "undefined") {
@@ -144,6 +146,36 @@ function LoginForm() {
               Enter credentials to sign in to your account
             </p>
           </div>
+
+          <div className="flex flex-col gap-4 mt-6">
+      
+      <RadioGroup defaultValue="user" name="role" orientation="horizontal">
+        <Radio  value="user">
+          <Radio.Content>
+            <Radio.Control>
+              <Radio.Indicator />
+            </Radio.Control>
+            User
+          </Radio.Content>
+        </Radio>
+        <Radio value="trainer">
+          <Radio.Content>
+            <Radio.Control>
+              <Radio.Indicator />
+            </Radio.Control>
+            Trainer
+          </Radio.Content>
+        </Radio>
+        <Radio value="admin">
+          <Radio.Content>
+            <Radio.Control>
+              <Radio.Indicator />
+            </Radio.Control>
+            Admin
+          </Radio.Content>
+        </Radio>
+      </RadioGroup>
+    </div>
 
           <button
             type="button"

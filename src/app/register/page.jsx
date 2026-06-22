@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import backgroundImage from "../../../asset/footer-background.jpg";
 import registerImage from "../../../asset/image10.jpg";
 import logo from "../../../asset/logo.png";
+import {Description, Label, Radio, RadioGroup} from "@heroui/react";
 
 function getIntendedRoute() {
   if (typeof window === "undefined") {
@@ -137,6 +138,30 @@ export default function RegisterPage() {
               All new accounts register as standard users by default.
             </p>
           </div>
+
+           <div className="flex flex-col gap-4 mt-6">
+      
+      <RadioGroup defaultValue="user" name="role" orientation="horizontal">
+        <Radio selected value="user">
+          <Radio.Content>
+            <Radio.Control>
+              <Radio.Indicator />
+            </Radio.Control>
+          User
+          </Radio.Content>
+        
+        </Radio>
+        <Radio value="trainer">
+          <Radio.Content>
+            <Radio.Control>
+              <Radio.Indicator />
+            </Radio.Control>
+            Trainer
+          </Radio.Content>
+        </Radio>
+      </RadioGroup>
+    </div>
+
 
           <form className="mt-7 space-y-5" onSubmit={handleRegister}>
             <label className="block">

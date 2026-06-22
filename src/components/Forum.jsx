@@ -2,19 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useSession } from "@/lib/auth-client";
 import { getRecentCommunityPosts } from "@/lib/community-posts";
 
 const recentPosts = getRecentCommunityPosts(3);
 
 function Forum() {
-  const { data: session } = useSession();
-  const isLoggedIn = Boolean(session?.user);
-
-  const handleLockedCommunity = () => {
-    alert("Please log in first to view the community forum.");
-  };
-
   return (
     <section className="relative overflow-hidden bg-[#282828] px-4 py-20 text-white sm:px-6 lg:px-8">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(249,115,22,0.12),transparent_28%),radial-gradient(circle_at_82%_70%,rgba(249,115,22,0.1),transparent_30%)]" />
@@ -71,22 +63,12 @@ function Forum() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          {isLoggedIn ? (
-            <Link
-              href="/community"
-              className="inline-flex items-center justify-center rounded-full bg-orange-500 px-7 py-3 text-sm font-black uppercase tracking-wide text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
-            >
-              View More
-            </Link>
-          ) : (
-            <button
-              type="button"
-              onClick={handleLockedCommunity}
-              className="inline-flex items-center justify-center rounded-full bg-orange-500 px-7 py-3 text-sm font-black uppercase tracking-wide text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
-            >
-              View More
-            </button>
-          )}
+          <Link
+            href="/community"
+            className="inline-flex items-center justify-center rounded-full bg-orange-500 px-7 py-3 text-sm font-black uppercase tracking-wide text-white transition hover:bg-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-200"
+          >
+            View More
+          </Link>
         </div>
       </div>
     </section>

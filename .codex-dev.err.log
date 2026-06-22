@@ -1,9 +1,985 @@
-⚠ Port 3000 is in use by process 14684, using available port 3001 instead.
-⨯ Another next dev server is already running.
+⨯ ./src/app/register/page.jsx:16:3
+'import', and 'export' cannot be used outside of module code
+  [90m14 |[0m [36mfunction[0m getIntendedRoute() {
+  [90m15 |[0m   
+[31m[1m>[0m [90m16 |[0m   [36mexport[0m [36mfunction[0m [33mHorizontal[0m() {
+  [90m   |[0m   [31m[1m^^^^^^[0m
+  [90m17 |[0m   [36mreturn[0m (
+  [90m18 |[0m     <div className=[32m"flex flex-col gap-4"[0m>
+  [90m19 |[0m       <[33mLabel[0m>[33mSubscription[0m plan</[33mLabel[0m>
 
-- Local:        http://localhost:3000
-- PID:          14684
-- Dir:          C:\Users\ASUS\forge-pulse
-- Log:          .next\dev\logs\next-development.log
+Parsing ecmascript source code failed
 
-Run taskkill /PID 14684 /F to stop it.
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+[browser] ./src/app/register/page.jsx:16:3
+'import', and 'export' cannot be used outside of module code
+  14 | function getIntendedRoute() {
+  15 |   
+> 16 |   export function Horizontal() {
+     |   ^^^^^^
+  17 |   return (
+  18 |     <div className="flex flex-col gap-4">
+  19 |       <Label>Subscription plan</Label>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:16:3
+'import', and 'export' cannot be used outside of module code
+  14 | function getIntendedRoute() {
+  15 |   
+> 16 |   export function Horizontal() {
+     |   ^^^^^^
+  17 |   return (
+  18 |     <div className="flex flex-col gap-4">
+  19 |       <Label>Subscription plan</Label>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:16:3
+'import', and 'export' cannot be used outside of module code
+  14 | function getIntendedRoute() {
+  15 |   
+> 16 |   export function Horizontal() {
+     |   ^^^^^^
+  17 |   return (
+  18 |     <div className="flex flex-col gap-4">
+  19 |       <Label>Subscription plan</Label>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+⨯ ./src/app/register/page.jsx:16:3
+'import', and 'export' cannot be used outside of module code
+  [90m14 |[0m [36mfunction[0m getIntendedRoute() {
+  [90m15 |[0m   
+[31m[1m>[0m [90m16 |[0m   [36mexport[0m [36mfunction[0m [33mHorizontal[0m() {
+  [90m   |[0m   [31m[1m^^^^^^[0m
+  [90m17 |[0m   [36mreturn[0m (
+  [90m18 |[0m     <div className=[32m"flex flex-col gap-4"[0m>
+  [90m19 |[0m       <[33mLabel[0m>[33mSubscription[0m plan</[33mLabel[0m>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+[browser] Uncaught Error: ./src/app/register/page.jsx:16:3
+'import', and 'export' cannot be used outside of module code
+  14 | function getIntendedRoute() {
+  15 |   
+> 16 |   export function Horizontal() {
+     |   ^^^^^^
+  17 |   return (
+  18 |     <div className="flex flex-col gap-4">
+  19 |       <Label>Subscription plan</Label>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+    at <unknown> (Error: ./src/app/register/page.jsx:16:3)
+    at <unknown> (Error: (./src/app/register/page.jsx:16:3)
+[browser] ./src/app/register/page.jsx:16:3
+'import', and 'export' cannot be used outside of module code
+  14 | function getIntendedRoute() {
+  15 |   
+> 16 |   export function Horizontal() {
+     |   ^^^^^^
+  17 |   return (
+  18 |     <div className="flex flex-col gap-4">
+  19 |       <Label>Subscription plan</Label>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:16:3
+'import', and 'export' cannot be used outside of module code
+  14 | function getIntendedRoute() {
+  15 |   
+> 16 |   export function Horizontal() {
+     |   ^^^^^^
+  17 |   return (
+  18 |     <div className="flex flex-col gap-4">
+  19 |       <Label>Subscription plan</Label>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:16:3
+'import', and 'export' cannot be used outside of module code
+  14 | function getIntendedRoute() {
+  15 |   
+> 16 |   export function Horizontal() {
+     |   ^^^^^^
+  17 |   return (
+  18 |     <div className="flex flex-col gap-4">
+  19 |       <Label>Subscription plan</Label>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+⨯ ./src/app/register/page.jsx:40:3
+Expression expected
+  [90m38 |[0m       </[33mRadioGroup[0m>
+  [90m39 |[0m     </div>
+[31m[1m>[0m [90m40 |[0m   );
+  [90m   |[0m   [31m[1m^[0m
+  [90m41 |[0m }
+  [90m42 |[0m
+  [90m43 |[0m   [36mif[0m ([36mtypeof[0m window === [32m"undefined"[0m) {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+⨯ ./src/app/register/page.jsx:40:3
+Expression expected
+  [90m38 |[0m       </[33mRadioGroup[0m>
+  [90m39 |[0m     </div>
+[31m[1m>[0m [90m40 |[0m   );
+  [90m   |[0m   [31m[1m^[0m
+  [90m41 |[0m }
+  [90m42 |[0m
+  [90m43 |[0m   [36mif[0m ([36mtypeof[0m window === [32m"undefined"[0m) {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+[browser] Uncaught Error: ./src/app/register/page.jsx:40:3
+Expression expected
+  38 |       </RadioGroup>
+  39 |     </div>
+> 40 |   );
+     |   ^
+  41 | }
+  42 |
+  43 |   if (typeof window === "undefined") {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+    at <unknown> (Error: ./src/app/register/page.jsx:40:3)
+    at <unknown> (Error: (./src/app/register/page.jsx:40:3)
+[browser] ./src/app/register/page.jsx:40:3
+Expression expected
+  38 |       </RadioGroup>
+  39 |     </div>
+> 40 |   );
+     |   ^
+  41 | }
+  42 |
+  43 |   if (typeof window === "undefined") {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:40:3
+Expression expected
+  38 |       </RadioGroup>
+  39 |     </div>
+> 40 |   );
+     |   ^
+  41 | }
+  42 |
+  43 |   if (typeof window === "undefined") {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:40:3
+Expression expected
+  38 |       </RadioGroup>
+  39 |     </div>
+> 40 |   );
+     |   ^
+  41 | }
+  42 |
+  43 |   if (typeof window === "undefined") {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:40:3
+Expression expected
+  38 |       </RadioGroup>
+  39 |     </div>
+> 40 |   );
+     |   ^
+  41 | }
+  42 |
+  43 |   if (typeof window === "undefined") {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:40:3
+Expression expected
+  38 |       </RadioGroup>
+  39 |     </div>
+> 40 |   );
+     |   ^
+  41 | }
+  42 |
+  43 |   if (typeof window === "undefined") {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:40:3
+Expression expected
+  38 |       </RadioGroup>
+  39 |     </div>
+> 40 |   );
+     |   ^
+  41 | }
+  42 |
+  43 |   if (typeof window === "undefined") {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:40:3
+Expression expected
+  38 |       </RadioGroup>
+  39 |     </div>
+> 40 |   );
+     |   ^
+  41 | }
+  42 |
+  43 |   if (typeof window === "undefined") {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:40:3
+Expression expected
+  38 |       </RadioGroup>
+  39 |     </div>
+> 40 |   );
+     |   ^
+  41 | }
+  42 |
+  43 |   if (typeof window === "undefined") {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:40:3
+Expression expected
+  38 |       </RadioGroup>
+  39 |     </div>
+> 40 |   );
+     |   ^
+  41 | }
+  42 |
+  43 |   if (typeof window === "undefined") {
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:59:1
+Expression expected
+  57 |
+  58 |   return route;
+> 59 | }
+     | ^
+  60 |
+  61 | function isValidPassword(password) {
+  62 |   return (
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+⨯ ./src/app/register/page.jsx:59:1
+Expression expected
+  [90m57 |[0m
+  [90m58 |[0m   [36mreturn[0m route;
+[31m[1m>[0m [90m59 |[0m }
+  [90m   |[0m [31m[1m^[0m
+  [90m60 |[0m
+  [90m61 |[0m [36mfunction[0m isValidPassword(password) {
+  [90m62 |[0m   [36mreturn[0m (
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+[browser] ./src/app/register/page.jsx:59:1
+Expression expected
+  57 |
+  58 |   return route;
+> 59 | }
+     | ^
+  60 |
+  61 | function isValidPassword(password) {
+  62 |   return (
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:59:1
+Expression expected
+  57 |
+  58 |   return route;
+> 59 | }
+     | ^
+  60 |
+  61 | function isValidPassword(password) {
+  62 |   return (
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:59:1
+Expression expected
+  57 |
+  58 |   return route;
+> 59 | }
+     | ^
+  60 |
+  61 | function isValidPassword(password) {
+  62 |   return (
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] Uncaught Error: ./src/app/register/page.jsx:59:1
+Expression expected
+  57 |
+  58 |   return route;
+> 59 | }
+     | ^
+  60 |
+  61 | function isValidPassword(password) {
+  62 |   return (
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+    at <unknown> (Error: ./src/app/register/page.jsx:59:1)
+    at <unknown> (Error: (./src/app/register/page.jsx:59:1)
+[browser] ./src/app/register/page.jsx:59:1
+Expression expected
+  57 |
+  58 |   return route;
+> 59 | }
+     | ^
+  60 |
+  61 | function isValidPassword(password) {
+  62 |   return (
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:59:1
+Expression expected
+  57 |
+  58 |   return route;
+> 59 | }
+     | ^
+  60 |
+  61 | function isValidPassword(password) {
+  62 |   return (
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+[browser] ./src/app/register/page.jsx:59:1
+Expression expected
+  57 |
+  58 |   return route;
+> 59 | }
+     | ^
+  60 |
+  61 | function isValidPassword(password) {
+  62 |   return (
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component] 
+⨯ ReferenceError: useRouter is not defined
+    at RegisterPage (src\app\register\page.jsx:70:18)
+  68 |
+  69 | export default function RegisterPage() {
+> 70 |   const router = useRouter();
+     |                  ^
+  71 |   const [name, setName] = useState("");
+  72 |   const [email, setEmail] = useState("");
+  73 |   const [image, setImage] = useState(""); {
+  digest: '4260205432'
+}
+⨯ ReferenceError: useRouter is not defined
+    at RegisterPage (src\app\register\page.jsx:70:18)
+  68 |
+  69 | export default function RegisterPage() {
+> 70 |   const router = useRouter();
+     |                  ^
+  71 |   const [name, setName] = useState("");
+  72 |   const [email, setEmail] = useState("");
+  73 |   const [image, setImage] = useState(""); {
+  digest: '4260205432'
+}
+[browser] Uncaught ReferenceError: useRouter is not defined
+    at RegisterPage (src/app/register/page.jsx:70:18)
+  68 |
+  69 | export default function RegisterPage() {
+> 70 |   const router = useRouter();
+     |                  ^
+  71 |   const [name, setName] = useState("");
+  72 |   const [email, setEmail] = useState("");
+  73 |   const [image, setImage] = useState("");
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload when ./src/app/register/page.jsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⨯ ReferenceError: useRouter is not defined
+    at RegisterPage (src\app\register\page.jsx:47:18)
+  45 |
+  46 | export default function RegisterPage() {
+> 47 |   const router = useRouter();
+     |                  ^
+  48 |   const [name, setName] = useState("");
+  49 |   const [email, setEmail] = useState("");
+  50 |   const [image, setImage] = useState(""); {
+  digest: '3058469869'
+}
+[browser] Uncaught ReferenceError: useRouter is not defined
+    at RegisterPage (src/app/register/page.jsx:47:18)
+  45 |
+  46 | export default function RegisterPage() {
+> 47 |   const router = useRouter();
+     |                  ^
+  48 |   const [name, setName] = useState("");
+  49 |   const [email, setEmail] = useState("");
+  50 |   const [image, setImage] = useState("");
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload when ./src/app/register/page.jsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+⨯ ./src/app/register/page.jsx:162:20
+Expected '</', got 'jsx text'
+  [90m160 |[0m           </[33mRadio[0m.[33mContent[0m>
+  [90m161 |[0m         
+[31m[1m>[0m [90m162 |[0m       </[33mRadioGroup[0m>
+  [90m    |[0m                    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m163 |[0m     </div>
+  [90m    |[0m [31m[1m^^^^[0m
+  [90m164 |[0m
+  [90m165 |[0m
+  [90m166 |[0m           <form className=[32m"mt-7 space-y-5"[0m onSubmit={handleRegister}>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+⨯ ./src/app/register/page.jsx:162:20
+Expected '</', got 'jsx text'
+  [90m160 |[0m           </[33mRadio[0m.[33mContent[0m>
+  [90m161 |[0m         
+[31m[1m>[0m [90m162 |[0m       </[33mRadioGroup[0m>
+  [90m    |[0m                    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m163 |[0m     </div>
+  [90m    |[0m [31m[1m^^^^[0m
+  [90m164 |[0m
+  [90m165 |[0m
+  [90m166 |[0m           <form className=[32m"mt-7 space-y-5"[0m onSubmit={handleRegister}>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+⨯ ./src/app/register/page.jsx:162:20
+Expected '</', got 'jsx text'
+  [90m160 |[0m           </[33mRadio[0m.[33mContent[0m>
+  [90m161 |[0m         
+[31m[1m>[0m [90m162 |[0m       </[33mRadioGroup[0m>
+  [90m    |[0m                    [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m163 |[0m     </div>
+  [90m    |[0m [31m[1m^^^^[0m
+  [90m164 |[0m
+  [90m165 |[0m
+  [90m166 |[0m           <form className=[32m"mt-7 space-y-5"[0m onSubmit={handleRegister}>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+[browser] Uncaught Error: ./src/app/register/page.jsx:162:20
+Expected '</', got 'jsx text'
+  160 |           </Radio.Content>
+  161 |         
+> 162 |       </RadioGroup>
+      |                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 163 |     </div>
+      | ^^^^
+  164 |
+  165 |
+  166 |           <form className="mt-7 space-y-5" onSubmit={handleRegister}>
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/register/page.jsx [Client Component Browser]
+    ./src/app/register/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/register/page.jsx [Client Component SSR]
+    ./src/app/register/page.jsx [Server Component]
+
+
+    at <unknown> (Error: ./src/app/register/page.jsx:162:20)
+    at <unknown> (Error: (./src/app/register/page.jsx:162:20)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+2026-06-22T06:44:22.028Z ERROR [Better Auth]: Provider not found. Make sure to add the provider in your auth config { provider: 'google' }
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+2026-06-22T06:44:22.957Z ERROR [Better Auth]: Provider not found. Make sure to add the provider in your auth config { provider: 'google' }
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+2026-06-22T06:46:12.651Z ERROR [Better Auth]: Provider not found. Make sure to add the provider in your auth config { provider: 'google' }
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+2026-06-22T06:46:13.457Z ERROR [Better Auth]: Provider not found. Make sure to add the provider in your auth config { provider: 'google' }
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+2026-06-22T06:46:14.265Z ERROR [Better Auth]: Provider not found. Make sure to add the provider in your auth config { provider: 'google' }
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+2026-06-22T06:46:15.470Z ERROR [Better Auth]: Provider not found. Make sure to add the provider in your auth config { provider: 'google' }
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+2026-06-22T06:46:16.255Z ERROR [Better Auth]: Provider not found. Make sure to add the provider in your auth config { provider: 'google' }
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+2026-06-22T06:46:17.483Z ERROR [Better Auth]: Provider not found. Make sure to add the provider in your auth config { provider: 'google' }
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+2026-06-22T06:46:19.241Z ERROR [Better Auth]: Provider not found. Make sure to add the provider in your auth config { provider: 'google' }
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility (<anonymous>)
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+[browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
