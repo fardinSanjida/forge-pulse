@@ -9,7 +9,6 @@ import "react-toastify/dist/ReactToastify.css";
 import backgroundImage from "../../../asset/footer-background.jpg";
 import registerImage from "../../../asset/image10.jpg";
 import logo from "../../../asset/logo.png";
-import {Description, Label, Radio, RadioGroup} from "@heroui/react";
 
 function getIntendedRoute() {
   if (typeof window === "undefined") {
@@ -24,7 +23,7 @@ function getIntendedRoute() {
     "/";
 
   if (!route.startsWith("/") || route.startsWith("//")) {
-    return "/home";
+    return "/";
   }
 
   return route;
@@ -44,6 +43,7 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [image, setImage] = useState("");
   const [password, setPassword] = useState("");
+  const [selectedRole, setSelectedRole] = useState("user");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -62,12 +62,14 @@ export default function RegisterPage() {
 
     try {
       const { signUp } = await import("@/lib/auth-client");
+      window.localStorage.setItem("forge-pulse-selected-role", selectedRole);
       const intendedRoute = getIntendedRoute();
       const response = await signUp.email({
         name,
         email,
         image,
         password,
+        role: selectedRole,
         callbackURL: intendedRoute,
       });
 
@@ -139,28 +141,28 @@ export default function RegisterPage() {
             </p>
           </div>
 
-           <div className="flex flex-col gap-4 mt-6">
-      
-      <RadioGroup defaultValue="user" name="role" orientation="horizontal">
-        <Radio selected value="user">
-          <Radio.Content>
-            <Radio.Control>
-              <Radio.Indicator />
-            </Radio.Control>
-          User
-          </Radio.Content>
-        
-        </Radio>
-        <Radio value="trainer">
-          <Radio.Content>
-            <Radio.Control>
-              <Radio.Indicator />
-            </Radio.Control>
-            Trainer
-          </Radio.Content>
-        </Radio>
-      </RadioGroup>
-    </div>
+          <div className="mt-6 grid grid-cols-2 gap-2">
+            {["user", "trainer"].map((role) => (
+              <label
+                key={role}
+                className={`cursor-pointer rounded-full border px-3 py-2 text-center text-xs font-bold uppercase transition ${
+                  selectedRole === role
+                    ? "border-orange-400 bg-orange-500 text-white"
+                    : "border-white/20 text-white/65 hover:border-orange-300"
+                }`}
+              >
+                <input
+                  type="radio"
+                  name="role"
+                  value={role}
+                  checked={selectedRole === role}
+                  onChange={(event) => setSelectedRole(event.target.value)}
+                  className="sr-only"
+                />
+                {role}
+              </label>
+            ))}
+          </div>
 
 
           <form className="mt-7 space-y-5" onSubmit={handleRegister}>

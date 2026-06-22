@@ -983,3 +983,414 @@ Import traces:
 [browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
 [browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
 [browser] If you do not provide a visible label, you must specify an aria-label or aria-labelledby attribute for accessibility
+⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" data-theme="dark" className="dark h-ful...">
+                          <body
+                            className="min-h-full flex flex-col"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+[browser] ./src/app/login/page.jsx:27:12
+Unterminated regexp literal
+  25 |
+  26 |   if (!route.startsWith("/") || route.startsWith("//")) {
+> 27 |     return /home;
+     |            ^^^^^^
+  28 |   }
+  29 |
+  30 |   return route;
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.jsx [Client Component Browser]
+    ./src/app/login/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.jsx [Client Component SSR]
+    ./src/app/login/page.jsx [Server Component] 
+[browser] ./src/app/login/page.jsx:27:12
+Unterminated regexp literal
+  25 |
+  26 |   if (!route.startsWith("/") || route.startsWith("//")) {
+> 27 |     return /home;
+     |            ^^^^^^
+  28 |   }
+  29 |
+  30 |   return route;
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.jsx [Client Component Browser]
+    ./src/app/login/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.jsx [Client Component SSR]
+    ./src/app/login/page.jsx [Server Component] 
+[browser] ./src/app/login/page.jsx:27:12
+Unterminated regexp literal
+  25 |
+  26 |   if (!route.startsWith("/") || route.startsWith("//")) {
+> 27 |     return /home;
+     |            ^^^^^^
+  28 |   }
+  29 |
+  30 |   return route;
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.jsx [Client Component Browser]
+    ./src/app/login/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.jsx [Client Component SSR]
+    ./src/app/login/page.jsx [Server Component] 
+[browser] ./src/app/login/page.jsx:27:12
+Unterminated regexp literal
+  25 |
+  26 |   if (!route.startsWith("/") || route.startsWith("//")) {
+> 27 |     return /home;
+     |            ^^^^^^
+  28 |   }
+  29 |
+  30 |   return route;
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.jsx [Client Component Browser]
+    ./src/app/login/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.jsx [Client Component SSR]
+    ./src/app/login/page.jsx [Server Component] 
+[browser] ./src/app/login/page.jsx:27:12
+Unterminated regexp literal
+  25 |
+  26 |   if (!route.startsWith("/") || route.startsWith("//")) {
+> 27 |     return /home;
+     |            ^^^^^^
+  28 |   }
+  29 |
+  30 |   return route;
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./src/app/login/page.jsx [Client Component Browser]
+    ./src/app/login/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/app/login/page.jsx [Client Component SSR]
+    ./src/app/login/page.jsx [Server Component] 
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" data-theme="dark" className="dark h-ful...">
+                          <body
+                            className="min-h-full flex flex-col"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+⨯ ./src/app/dashboard/[role]/[[...section]]/page.jsx:1:1
+Module not found: Can't resolve '@/components/DashboardShell'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m [33mDashboardShell[0m [36mfrom[0m [32m"@/components/DashboardShell"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m
+  [90m3 |[0m [36mexport[0m [36mconst[0m metadata = {
+  [90m4 |[0m   title: [32m"Dashboard | Forge Pulse"[0m,
+
+Import map: aliased to relative './src/components/DashboardShell' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/app/dashboard/[role]/[[...section]]/page.jsx:1:1
+Module not found: Can't resolve '@/components/DashboardShell'
+[31m[1m>[0m [90m1 |[0m [36mimport[0m [33mDashboardShell[0m [36mfrom[0m [32m"@/components/DashboardShell"[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m2 |[0m
+  [90m3 |[0m [36mexport[0m [36mconst[0m metadata = {
+  [90m4 |[0m   title: [32m"Dashboard | Forge Pulse"[0m,
+
+Import map: aliased to relative './src/components/DashboardShell' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[browser] Uncaught Error: ./src/app/dashboard/[role]/[[...section]]/page.jsx:1:1
+Module not found: Can't resolve '@/components/DashboardShell'
+> 1 | import DashboardShell from "@/components/DashboardShell";
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  2 |
+  3 | export const metadata = {
+  4 |   title: "Dashboard | Forge Pulse",
+
+Import map: aliased to relative './src/components/DashboardShell' inside of [project]/
+
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (Error: ./src/app/dashboard/[role]/[[...section]]/page.jsx:1:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (Error: (./src/app/dashboard/[role]/[[...section]]/page.jsx:1:1)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+[browser] Uncaught Error: ./src/components/Admin.jsx:12:1
+The "use client" directive must be placed before other expressions. Move it to the top of the file to resolve this issue.
+  10 |
+  11 | export default Admin;
+> 12 | "use client";
+     | ^^^^^^^^^^^^^
+  13 |
+  14 | import { useState } from "react";
+  15 | import {
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./src/components/Admin.jsx [Client Component Browser]
+    ./src/components/DashboardShell.jsx [Client Component Browser]
+    ./src/components/DashboardShell.jsx [Server Component]
+    ./src/app/dashboard/[role]/[[...section]]/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/Admin.jsx [Client Component SSR]
+    ./src/components/DashboardShell.jsx [Client Component SSR]
+    ./src/components/DashboardShell.jsx [Server Component]
+    ./src/app/dashboard/[role]/[[...section]]/page.jsx [Server Component]
+
+
+    at <unknown> (Error: ./src/components/Admin.jsx:12:1)
+    at <unknown> (Error: (./src/components/Admin.jsx:12:1)
+[browser] Uncaught Error: ./src/components/Admin.jsx:12:1
+The "use client" directive must be placed before other expressions. Move it to the top of the file to resolve this issue.
+  10 |
+  11 | export default Admin;
+> 12 | "use client";
+     | ^^^^^^^^^^^^^
+  13 |
+  14 | import { useState } from "react";
+  15 | import {
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./src/components/Admin.jsx [Client Component Browser]
+    ./src/components/DashboardShell.jsx [Client Component Browser]
+    ./src/components/DashboardShell.jsx [Server Component]
+    ./src/app/dashboard/[role]/[[...section]]/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/Admin.jsx [Client Component SSR]
+    ./src/components/DashboardShell.jsx [Client Component SSR]
+    ./src/components/DashboardShell.jsx [Server Component]
+    ./src/app/dashboard/[role]/[[...section]]/page.jsx [Server Component]
+
+
+    at <unknown> (Error: ./src/components/Admin.jsx:12:1)
+    at <unknown> (Error: (./src/components/Admin.jsx:12:1)
+[browser] Uncaught Error: ./src/components/Admin.jsx:12:1
+The "use client" directive must be placed before other expressions. Move it to the top of the file to resolve this issue.
+  10 |
+  11 | export default Admin;
+> 12 | "use client";
+     | ^^^^^^^^^^^^^
+  13 |
+  14 | import { useState } from "react";
+  15 | import {
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./src/components/Admin.jsx [Client Component Browser]
+    ./src/components/DashboardShell.jsx [Client Component Browser]
+    ./src/components/DashboardShell.jsx [Server Component]
+    ./src/app/dashboard/[role]/[[...section]]/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/Admin.jsx [Client Component SSR]
+    ./src/components/DashboardShell.jsx [Client Component SSR]
+    ./src/components/DashboardShell.jsx [Server Component]
+    ./src/app/dashboard/[role]/[[...section]]/page.jsx [Server Component]
+
+
+    at <unknown> (Error: ./src/components/Admin.jsx:12:1)
+    at <unknown> (Error: (./src/components/Admin.jsx:12:1)
+[browser] Uncaught Error: ./src/components/Admin.jsx:12:1
+The "use client" directive must be placed before other expressions. Move it to the top of the file to resolve this issue.
+  10 |
+  11 | export default Admin;
+> 12 | "use client";
+     | ^^^^^^^^^^^^^
+  13 |
+  14 | import { useState } from "react";
+  15 | import {
+
+Ecmascript file had an error
+
+Import traces:
+  Client Component Browser:
+    ./src/components/Admin.jsx [Client Component Browser]
+    ./src/components/DashboardShell.jsx [Client Component Browser]
+    ./src/components/DashboardShell.jsx [Server Component]
+    ./src/app/dashboard/[role]/[[...section]]/page.jsx [Server Component]
+
+  Client Component SSR:
+    ./src/components/Admin.jsx [Client Component SSR]
+    ./src/components/DashboardShell.jsx [Client Component SSR]
+    ./src/components/DashboardShell.jsx [Server Component]
+    ./src/app/dashboard/[role]/[[...section]]/page.jsx [Server Component]
+
+
+    at <unknown> (Error: ./src/components/Admin.jsx:12:1)
+    at <unknown> (Error: (./src/components/Admin.jsx:12:1)
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/community" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" data-theme="dark" className="dark h-ful...">
+                          <body
+                            className="min-h-full flex flex-col"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+[browser] Image with src "/_next/static/media/yoga2.2y3t8hfw5ggo3.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+[browser] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+https://react.dev/link/hydration-mismatch
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/dashboard..." notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.js">
+                      <SegmentTrieNode>
+                      <link>
+                      <script>
+                      <script>
+                      <script>
+                      <RootLayout>
+                        <html lang="en" data-theme="dark" className="dark h-ful...">
+                          <body
+                            className="min-h-full flex flex-col"
+-                           cz-shortcut-listen="true"
+                          >
+                  ...
+ 
+⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload

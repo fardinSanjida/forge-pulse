@@ -73,12 +73,12 @@ export default function ClassesPage() {
                   </div>
                 </div>
 
-                <button
-                  type="button"
+                <Link
+                  href={`/classes/${classItem.id}`}
                   className="inline-flex w-full items-center justify-center rounded-full bg-orange-500 px-5 py-3 text-sm font-bold uppercase text-white transition hover:bg-orange-400"
                 >
                   Details
-                </button>
+                </Link>
               </div>
             </article>
           ))}

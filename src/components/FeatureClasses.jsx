@@ -78,7 +78,7 @@ function FeatureClasses() {
                 </div>
 
                 <Link
-                  href={`/classes#${classItem.id}`}
+                  href={`/classes/${classItem.id}`}
                   className="inline-flex w-full items-center justify-center rounded-full border border-orange-400/60 px-5 py-3 text-sm font-bold uppercase text-white transition hover:bg-orange-500"
                 >
                   Details
