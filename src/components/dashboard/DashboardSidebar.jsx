@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import logo from "../../../asset/logo.png";
+import { signOut } from "@/lib/auth-client";
 
 const userMenuItems = [
   {
@@ -104,22 +103,22 @@ function DashboardSidebar({
     userMenuItems.find((item) => item.section === activeSection) ||
     userMenuItems[0];
 
+  const handleLogout = async () => {
+    await signOut();
+    router.push("/");
+    router.refresh();
+  };
+
   return (
     <aside className="w-full lg:w-72 lg:shrink-0">
       <div className="lg:hidden">
-        <label
-          htmlFor="user-dashboard-menu"
-          className="mb-2 block text-sm font-semibold text-white/70"
-        >
-          Dashboard menu
-        </label>
         <select
           id="user-dashboard-menu"
           value={activeItem.section}
           onChange={(event) => {
             router.push(getHref(event.target.value));
           }}
-          className="h-12 w-full rounded-md border border-white/10 bg-[#0b1217] px-4 text-sm font-semibold text-white outline-none transition focus:border-lime-400"
+          className="h-12 w-full rounded-md border border-white/10 bg-[#0b1217] px-4 text-sm font-semibold text-white outline-none transition focus:border-orange-400"
         >
           {userMenuItems.map((item) => (
             <option key={item.section} value={item.section}>
@@ -127,16 +126,23 @@ function DashboardSidebar({
             </option>
           ))}
         </select>
+        <button
+          type="button"
+          onClick={handleLogout}
+          className="mt-3 h-12 w-full rounded-md border border-white/10 bg-white/[0.04] px-4 text-sm font-semibold text-white/75 transition hover:bg-white/[0.08] hover:text-white"
+        >
+          Logout
+        </button>
       </div>
 
-      <div className="hidden min-h-[calc(100vh-5rem)] border-r border-white/10 bg-[#071016] px-5 py-8 text-white shadow-2xl shadow-black/20 lg:block">
+      <div className="hidden min-h-[calc(100vh-5rem)] flex-col border-r border-white/10 bg-[#071016] px-5 py-8 text-white shadow-2xl shadow-black/20 lg:flex">
         {/* <Link href="/" className="mb-10 flex items-center gap-3" aria-label="Forge Pulse home">
           <span className="relative h-20 w-60 shrink-0 overflow-hidden ">
             <Image src={logo} alt="" className="object-contain" />
           </span>
         </Link> */}
 
-        <nav aria-label="User dashboard navigation">
+        <nav aria-label="User dashboard navigation" className="flex-1">
           <ul className="space-y-4">
             {userMenuItems.map((item) => {
               const isActive = item.section === activeItem.section;
@@ -165,6 +171,19 @@ function DashboardSidebar({
             })}
           </ul>
         </nav>
+
+        <button
+          type="button"
+          onClick={handleLogout}
+          className="mt-8 flex min-h-14 w-full items-center gap-4 rounded-md px-5 py-3 text-base font-semibold text-white/60 transition hover:bg-white/[0.04] hover:text-white"
+        >
+          <MenuIcon>
+            <path d="M10 17l5-5-5-5" />
+            <path d="M15 12H3" />
+            <path d="M21 3v18" />
+          </MenuIcon>
+          <span>Logout</span>
+        </button>
       </div>
     </aside>
   );
