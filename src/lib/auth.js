@@ -12,21 +12,11 @@ const trustedOrigins = [
   "http://127.0.0.1:3001",
   "http://192.168.1.190:3000",
   "http://192.168.1.190:3001",
-];
+  process.env.BETTER_AUTH_URL,
+].filter(Boolean);
 
 export const auth = betterAuth({
-  baseURL: {
-    allowedHosts: [
-      "localhost:3000",
-      "localhost:3001",
-      "127.0.0.1:3000",
-      "127.0.0.1:3001",
-      "192.168.1.190:3000",
-      "192.168.1.190:3001",
-    ],
-    fallback: "http://localhost:3000",
-    protocol: "http",
-  },
+  baseURL: process.env.BETTER_AUTH_URL || "http://localhost:3000",
   trustedOrigins,
   emailAndPassword: {
     enabled: true,
