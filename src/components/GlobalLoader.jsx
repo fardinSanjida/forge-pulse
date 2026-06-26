@@ -5,8 +5,7 @@ import { usePathname } from "next/navigation";
 
 const API_ORIGIN = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 const isApiCall = (url) =>
-  url.startsWith(API_ORIGIN) ||
-  (url.startsWith("/api/") && !url.startsWith("/api/auth/"));
+  url.startsWith(API_ORIGIN) || url.startsWith("/server/api/");
 
 export default function GlobalLoader() {
   const [visible, setVisible] = useState(false);
