@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "@/lib/auth-client";
 
-const userMenuItems = [
+const dashboardMenuItems = {
+  user: [
   {
     label: "Overview",
     section: "overview",
@@ -51,17 +52,6 @@ const userMenuItems = [
     ),
   },
   {
-    label: "Notifications",
-    section: "notifications",
-    badge: "3",
-    icon: (
-      <>
-        <path d="M18 8a6 6 0 1 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" />
-        <path d="M10 21h4" />
-      </>
-    ),
-  },
-  {
     label: "Profile Settings",
     section: "profile-settings",
     icon: (
@@ -71,7 +61,158 @@ const userMenuItems = [
       </>
     ),
   },
-];
+  ],
+  trainer: [
+    {
+      label: "Overview",
+      section: "overview",
+      icon: (
+        <path d="M4 10.5 12 4l8 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5v-8Z" />
+      ),
+    },
+    {
+      label: "Add Classes",
+      section: "add-classes",
+      icon: (
+        <>
+          <rect width="16" height="16" x="4" y="4" rx="2" />
+          <path d="M12 8v8M8 12h8" />
+        </>
+      ),
+    },
+    {
+      label: "My Classes",
+      section: "my-classes",
+      icon: (
+        <>
+          <path d="M7 3v4M17 3v4M4 9h16" />
+          <rect width="16" height="17" x="4" y="5" rx="2" />
+        </>
+      ),
+    },
+    {
+      label: "Add Forum Post",
+      section: "add-forum-post",
+      icon: (
+        <>
+          <path d="M12 20h9" />
+          <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+        </>
+      ),
+    },
+    {
+      label: "My Forum Post",
+      section: "my-forum-post",
+      icon: (
+        <>
+          <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" />
+          <path d="M8 9h8M8 13h5" />
+        </>
+      ),
+    },
+    {
+      label: "Profile Settings",
+      section: "profile-settings",
+      icon: (
+        <>
+          <path d="M12 3 5 7v6c0 4 3 7 7 8 4-1 7-4 7-8V7l-7-4Z" />
+          <path d="M9.5 12a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0ZM8 18a4 4 0 0 1 8 0" />
+        </>
+      ),
+    },
+  ],
+  admin: [
+    {
+      label: "Overview",
+      section: "overview",
+      icon: (
+        <path d="M4 10.5 12 4l8 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5v-8Z" />
+      ),
+    },
+    {
+      label: "Users",
+      section: "users",
+      icon: (
+        <>
+          <circle cx="9" cy="7" r="4" />
+          <path d="M3 21a6 6 0 0 1 12 0M17 11a4 4 0 0 1 0 8" />
+        </>
+      ),
+    },
+    {
+      label: "Applied Trainers",
+      section: "applied-trainers",
+      icon: (
+        <>
+          <circle cx="12" cy="7" r="4" />
+          <path d="M5.5 21a6.5 6.5 0 0 1 13 0" />
+          <path d="m16 11 2 2 4-4" />
+        </>
+      ),
+    },
+    {
+      label: "Manage Trainers",
+      section: "manage-trainers",
+      icon: (
+        <>
+          <circle cx="12" cy="7" r="4" />
+          <path d="M5.5 21a6.5 6.5 0 0 1 13 0" />
+          <path d="M17 13l-4 4-2-2" />
+        </>
+      ),
+    },
+    {
+      label: "Classes",
+      section: "classes",
+      icon: (
+        <>
+          <path d="M7 3v4M17 3v4M4 9h16" />
+          <rect width="16" height="17" x="4" y="5" rx="2" />
+        </>
+      ),
+    },
+    {
+      label: "Add Forum Post",
+      section: "add-forum-post",
+      icon: (
+        <>
+          <path d="M12 20h9" />
+          <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+        </>
+      ),
+    },
+    {
+      label: "Forum Posts",
+      section: "forum-posts",
+      icon: (
+        <>
+          <path d="M21 15a4 4 0 0 1-4 4H7l-4 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z" />
+          <path d="M8 9h8M8 13h5" />
+        </>
+      ),
+    },
+    {
+      label: "Transactions",
+      section: "payments",
+      icon: (
+        <>
+          <rect width="18" height="14" x="3" y="5" rx="2" />
+          <path d="M3 10h18M7 15h4" />
+        </>
+      ),
+    },
+    {
+      label: "Profile Settings",
+      section: "profile-settings",
+      icon: (
+        <>
+          <path d="M12 3 5 7v6c0 4 3 7 7 8 4-1 7-4 7-8V7l-7-4Z" />
+          <path d="M9.5 12a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0ZM8 18a4 4 0 0 1 8 0" />
+        </>
+      ),
+    },
+  ],
+};
 
 function MenuIcon({ children }) {
   return (
@@ -93,15 +234,23 @@ function MenuIcon({ children }) {
 function DashboardSidebar({
   activeSection = "overview",
   basePath = "/dashboard/user",
+  items,
+  role = "user",
+  label = "dashboard",
 }) {
   const router = useRouter();
+  const pathname = usePathname();
+  const menuItems = items || dashboardMenuItems[role] || dashboardMenuItems.user;
 
   const getHref = (section) =>
-    section === "overview" ? basePath : `${basePath}?section=${section}`;
+    `${basePath}/${section}`;
 
+  const activePathSection = pathname?.startsWith(basePath)
+    ? pathname.slice(basePath.length).split("/").filter(Boolean)[0]
+    : null;
+  const currentSection = activePathSection || activeSection;
   const activeItem =
-    userMenuItems.find((item) => item.section === activeSection) ||
-    userMenuItems[0];
+    menuItems.find((item) => item.section === currentSection) || menuItems[0];
 
   const handleLogout = async () => {
     await signOut();
@@ -113,14 +262,14 @@ function DashboardSidebar({
     <aside className="w-full lg:w-72 lg:shrink-0">
       <div className="lg:hidden">
         <select
-          id="user-dashboard-menu"
+          id={`${role}-dashboard-menu`}
           value={activeItem.section}
           onChange={(event) => {
             router.push(getHref(event.target.value));
           }}
           className="h-12 w-full rounded-md border border-white/10 bg-[#0b1217] px-4 text-sm font-semibold text-white outline-none transition focus:border-orange-400"
         >
-          {userMenuItems.map((item) => (
+          {menuItems.map((item) => (
             <option key={item.section} value={item.section}>
               {item.label}
             </option>
@@ -142,9 +291,9 @@ function DashboardSidebar({
           </span>
         </Link> */}
 
-        <nav aria-label="User dashboard navigation" className="flex-1">
+        <nav aria-label={`${label} navigation`} className="flex-1">
           <ul className="space-y-4">
-            {userMenuItems.map((item) => {
+            {menuItems.map((item) => {
               const isActive = item.section === activeItem.section;
 
               return (

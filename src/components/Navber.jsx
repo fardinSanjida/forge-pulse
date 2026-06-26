@@ -7,6 +7,7 @@ import { useMemo, useState } from "react";
 import logo from "../../asset/logo.png";
 import { signOut, useSession } from "@/lib/auth-client";
 import { getDashboardHref, normalizeDashboardRole } from "@/lib/dashboard-route";
+import { apiUrl } from "@/lib/api";
 
 const fallbackProfileImage =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%23fff3d1'/%3E%3Ccircle cx='48' cy='37' r='18' fill='%23ff7a00'/%3E%3Cpath d='M20 84c5-19 18-29 28-29s23 10 28 29' fill='%238a5a2b'/%3E%3C/svg%3E";
@@ -21,20 +22,10 @@ function Navber() {
   const router = useRouter();
   const { data: session, refetch } = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [selectedRole] = useState(() => {
-    if (typeof window === "undefined") {
-      return null;
-    }
-
-    return window.localStorage.getItem("forge-pulse-selected-role");
-  });
   const currentUser = session?.user;
   const profileImage = currentUser?.image || fallbackProfileImage;
   const profileName = currentUser?.name || currentUser?.email || "User";
-  const dashboardRole =
-    normalizeDashboardRole(currentUser?.role) === "user"
-      ? selectedRole || currentUser?.role
-      : currentUser?.role;
+  const dashboardRole = normalizeDashboardRole(currentUser?.role);
 
   const navigationLinks = useMemo(() => {
     if (!currentUser) {
@@ -52,13 +43,26 @@ function Navber() {
 
   const closeMenu = () => setIsMenuOpen(false);
 
-  const handleLogout = async () => {
+const handleLogout = async () => {
+  try {
+    // 1. Call backend logout endpoint (IMPORTANT)
+    await fetch(apiUrl("/api/auth/logout"), {
+      method: "POST",
+      credentials: "include",
+    });
+
+    // 2. Clear frontend session
     await signOut();
     await refetch();
+
+    // 3. UI cleanup
     closeMenu();
     router.push("/");
     router.refresh();
-  };
+  } catch (err) {
+    console.error("Logout failed:", err);
+  }
+};
 
   return (
     <nav className="sticky top-0 z-40 w-full border-b border-orange-300/50 bg-neutral-950/90 text-white shadow-lg shadow-black/10 backdrop-blur-xl">

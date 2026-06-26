@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import image3 from "../../asset/image3.jpg";
 import image4 from "../../asset/image4.jpg";
 import image9 from "../../asset/image9.jpg";
@@ -37,7 +40,13 @@ const Process = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(249,115,22,0.16),transparent_28%),radial-gradient(circle_at_85%_55%,rgba(249,115,22,0.08),transparent_30%)]" />
 
       <div className="relative mx-auto max-w-7xl">
-        <div className="mx-auto max-w-3xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mx-auto max-w-3xl text-center"
+        >
           <div className="flex items-center justify-center gap-4 text-sm font-medium text-white/75">
             <span className="h-px w-20 bg-orange-400" />
             <span>Work Process In Our Gym</span>
@@ -46,7 +55,7 @@ const Process = () => {
           <h2 className="mt-6 text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">
             Easy Step To Achieve Your Goals.
           </h2>
-        </div>
+        </motion.div>
 
         <div className="relative mt-16 grid gap-12 lg:grid-cols-3 lg:gap-10">
           <svg
@@ -78,8 +87,15 @@ const Process = () => {
             />
           </svg>
 
-          {processSteps.map((item) => (
-            <article key={item.step} className="relative text-center">
+          {processSteps.map((item, index) => (
+            <motion.article
+              key={item.step}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, ease: "easeOut", delay: index * 0.15 }}
+              className="relative text-center"
+            >
               <div
                 className={`mx-auto rounded-full ${
                   item.featured
@@ -112,7 +128,7 @@ const Process = () => {
               <p className="mx-auto mt-4 max-w-xs text-sm leading-6 text-white/55">
                 {item.description}
               </p>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

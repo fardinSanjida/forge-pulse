@@ -1,14 +1,74 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useSession } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 import {
   DashboardShell,
   PageHeader,
   Panel,
   StatusBadge,
-  TableFooter,
-  classRows,
 } from "@/components/dashboard/UserDashboardShared";
+import { apiUrl } from "@/lib/api";
+
+function formatDate(value) {
+  if (!value) return "—";
+  return new Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(new Date(value));
+}
+
+function formatAmount(dollars) {
+  if (!dollars && dollars !== 0) return "—";
+  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(dollars);
+}
 
 export default function Page() {
+  const { data: session, isPending } = useSession();
+  const router = useRouter();
+  const user = session?.user;
+
+  const [bookings, setBookings] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (isPending) return;
+    if (!user?.email) {
+      router.push("/login");
+      return;
+    }
+
+    async function load() {
+      setIsLoading(true);
+      setError("");
+      try {
+        const res = await fetch(
+          apiUrl(`/api/bookings?userEmail=${encodeURIComponent(user.email)}`),
+          { credentials: "include" }
+        );
+        if (!res.ok) throw new Error("Failed to load bookings.");
+        const data = await res.json();
+        setBookings(Array.isArray(data) ? data : (data.data || []));
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    load();
+  }, [isPending, user?.email, router]);
+
+  const filtered = bookings.filter((b) => {
+    const q = search.toLowerCase();
+    return (
+      !q ||
+      b.className?.toLowerCase().includes(q) ||
+      b.trainerName?.toLowerCase().includes(q)
+    );
+  });
+
   return (
     <DashboardShell activeSection="booked-classes">
       <PageHeader
@@ -17,23 +77,21 @@ export default function Page() {
       />
 
       <Panel className="mt-6">
-        <div className="grid gap-3 border-b border-white/10 pb-4 md:grid-cols-[1fr_180px_180px]">
+        <div className="flex flex-col gap-3 border-b border-white/10 pb-4 sm:flex-row">
           <input
             type="search"
-            placeholder="Search classes..."
-            className="h-11 rounded-md border border-white/10 bg-[#081016] px-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-green-400"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Search by class or trainer…"
+            className="h-11 flex-1 rounded-md border border-white/10 bg-[#081016] px-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-green-400"
           />
-          <select className="h-11 rounded-md border border-white/10 bg-[#081016] px-4 text-sm text-white/75 outline-none focus:border-green-400">
-            <option>All Trainers</option>
-            <option>Sarah Khan</option>
-            <option>Mike Johnson</option>
-          </select>
-          <select className="h-11 rounded-md border border-white/10 bg-[#081016] px-4 text-sm text-white/75 outline-none focus:border-green-400">
-            <option>All Statuses</option>
-            <option>Paid</option>
-            <option>Pending</option>
-          </select>
         </div>
+
+        {error && (
+          <p className="mt-4 rounded-md border border-red-400/20 bg-red-500/10 px-4 py-3 text-sm text-red-100">
+            {error}
+          </p>
+        )}
 
         <div className="mt-4 overflow-x-auto">
           <table className="w-full min-w-[760px] text-left text-sm">
@@ -42,48 +100,55 @@ export default function Page() {
                 <th className="px-4 py-4">Class</th>
                 <th className="px-4 py-4">Trainer</th>
                 <th className="px-4 py-4">Schedule</th>
-                <th className="px-4 py-4">Payment</th>
+                <th className="px-4 py-4">Amount</th>
+                <th className="px-4 py-4">Date</th>
                 <th className="px-4 py-4 text-right">Action</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/10">
-              {classRows.map((row) => (
-                <tr key={row.name} className="text-white/75">
-                  <td className="px-4 py-4">
-                    <div className="flex items-center gap-3">
-                      <Image
-                        src={row.image}
-                        alt=""
-                        width={64}
-                        height={46}
-                        className="h-12 w-16 rounded-md object-cover"
-                        placeholder="blur"
-                      />
-                      <div>
-                        <p className="font-black text-white">{row.name}</p>
-                        <p className="mt-1 text-xs text-white/50">{row.level}</p>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="px-4 py-4">{row.trainer}</td>
-                  <td className="max-w-48 px-4 py-4">{row.schedule}</td>
-                  <td className="px-4 py-4">
-                    <StatusBadge>Paid</StatusBadge>
-                  </td>
-                  <td className="px-4 py-4 text-right">
-                    <button
-                      type="button"
-                      className="rounded-md border border-orange-500/70 px-4 py-2 text-xs font-black text-orange-300 transition hover:bg-orange-500 hover:text-white"
-                    >
-                      View Details
-                    </button>
+              {isLoading ? (
+                <tr>
+                  <td className="px-4 py-8 text-center text-white/55" colSpan={6}>
+                    Loading bookings…
                   </td>
                 </tr>
-              ))}
+              ) : filtered.length === 0 ? (
+                <tr>
+                  <td className="px-4 py-8 text-center text-white/55" colSpan={6}>
+                    {search ? "No classes match your search." : "You have no booked classes yet."}
+                  </td>
+                </tr>
+              ) : (
+                filtered.map((b) => (
+                  <tr key={b._id} className="text-white/75">
+                    <td className="px-4 py-4">
+                      <p className="font-black text-white">{b.className || "—"}</p>
+                    </td>
+                    <td className="px-4 py-4">{b.trainerName || "—"}</td>
+                    <td className="max-w-48 px-4 py-4 text-white/60">
+                      {b.schedule || "—"}
+                    </td>
+                    <td className="px-4 py-4 font-black text-green-300">
+                      {formatAmount(b.amount)}
+                    </td>
+                    <td className="px-4 py-4 text-white/60">
+                      {formatDate(b.createdAt)}
+                    </td>
+                    <td className="px-4 py-4 text-right">
+                      <StatusBadge>Paid</StatusBadge>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
-        <TableFooter />
+
+        {!isLoading && filtered.length > 0 && (
+          <div className="mt-5 text-xs text-white/45">
+            Showing {filtered.length} of {bookings.length} bookings
+          </div>
+        )}
       </Panel>
     </DashboardShell>
   );

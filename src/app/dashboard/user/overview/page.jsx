@@ -1,8 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSession } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 import { StatCard } from "@/components/dashboard/DashboardShareStates";
 import {
   DashboardShell,
@@ -10,34 +11,103 @@ import {
   Panel,
   StatusBadge,
   dashboardImages,
-  trainerApplicationStatusKey,
   userStats,
 } from "@/components/dashboard/UserDashboardShared";
+import { apiUrl } from "@/lib/api";
+
+function getStatusTone(status) {
+  if (status === "Approved") return "green";
+  if (status === "Rejected") return "blue";
+  return "orange";
+}
 
 export default function Page() {
-  const [applicationStatus] = useState(() =>
-    typeof window !== "undefined"
-      ? window.localStorage.getItem(trainerApplicationStatusKey) ||
-        "not-applied"
-      : "not-applied",
-  );
+  const { data: session, isPending } = useSession();
+  const router = useRouter();
+  const user = session?.user;
 
-  const hasApplied = applicationStatus === "pending";
-  const overviewStats = userStats.map((stat) =>
-    stat.label === "Application Status" && hasApplied
-      ? {
-          ...stat,
-          value: "Applied",
-          action: "View application",
-          tint: "from-amber-500/50 to-[#130d02]",
+  const [totalClasses, setTotalClasses] = useState(null);
+  const [bookingCount, setBookingCount] = useState(null);
+  const [favoritesCount, setFavoritesCount] = useState(null);
+  const [application, setApplication] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (isPending) return;
+    if (!user?.email) {
+      router.push("/login");
+      return;
+    }
+
+    const email = encodeURIComponent(user.email);
+
+    async function loadAll() {
+      setIsLoading(true);
+      try {
+        const [classesRes, bookingsRes, favoritesRes, appRes] = await Promise.all([
+          fetch(apiUrl("/api/classes?limit=1"), { credentials: "include" }),
+          fetch(apiUrl(`/api/bookings?userEmail=${email}`), { credentials: "include" }),
+          fetch(apiUrl(`/api/favorites?userEmail=${email}`), { credentials: "include" }),
+          fetch(apiUrl(`/api/trainer-applications?userEmail=${email}`)),
+        ]);
+
+        if (classesRes.ok) {
+          const json = await classesRes.json();
+          setTotalClasses(json.pagination?.total ?? (Array.isArray(json) ? json.length : 0));
         }
-      : stat,
-  );
+        if (bookingsRes.ok) {
+          const data = await bookingsRes.json();
+          setBookingCount(Array.isArray(data) ? data.length : (data.data?.length ?? 0));
+        }
+        if (favoritesRes.ok) {
+          const data = await favoritesRes.json();
+          setFavoritesCount(Array.isArray(data) ? data.length : 0);
+        }
+        if (appRes.ok) {
+          const apps = await appRes.json();
+          setApplication(apps[0] || null);
+        }
+      } catch {
+        // non-fatal
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    loadAll();
+  }, [isPending, user?.email, router]);
+
+  const applicationStatus = application?.status || "Not Applied";
+  const hasApplied = !!application;
+
+  const overviewStats = userStats.map((stat) => {
+    if (stat.label === "Total Class") {
+      return { ...stat, value: isLoading ? "—" : String(totalClasses ?? 0) };
+    }
+    if (stat.label === "Total Booked Classes") {
+      return { ...stat, value: isLoading ? "—" : String(bookingCount ?? 0) };
+    }
+    if (stat.label === "Total Favorites") {
+      return { ...stat, value: isLoading ? "—" : String(favoritesCount ?? 0).padStart(2, "0") };
+    }
+    if (stat.label === "Application Status") {
+      return {
+        ...stat,
+        value: isLoading ? "—" : applicationStatus,
+        tint: hasApplied ? "from-amber-500/50 to-[#130d02]" : "from-slate-500/45 to-[#0b1118]",
+      };
+    }
+    return stat;
+  });
+
+  const memberSince = user?.createdAt
+    ? new Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(new Date(user.createdAt))
+    : "—";
 
   return (
     <DashboardShell activeSection="overview">
       <PageHeader
-        title="Welcome back, John"
+        title={`Welcome back, ${user?.name?.split(" ")[0] || "there"}`}
         subtitle="Track your fitness journey and achieve your goals."
         action={
           <Link
@@ -58,28 +128,31 @@ export default function Page() {
       <div className="mt-5 grid gap-5 xl:grid-cols-3">
         <Panel>
           <div className="flex items-center gap-5">
-            <Image
-              src={dashboardImages.profileImage}
-              alt="John Doe"
-              width={96}
-              height={96}
-              className="h-24 w-24 rounded-full object-cover"
-              placeholder="blur"
-            />
+            {user?.image ? (
+              <img
+                src={user.image}
+                alt={user.name}
+                width={96}
+                height={96}
+                className="h-24 w-24 rounded-full object-cover"
+              />
+            ) : (
+              <div className="grid h-24 w-24 shrink-0 place-items-center rounded-full bg-orange-500/20 text-4xl font-black text-orange-300">
+                {user?.name?.[0]?.toUpperCase() || "U"}
+              </div>
+            )}
             <div className="min-w-0">
               <div className="flex flex-wrap items-center gap-2">
-                <h2 className="text-xl font-black">John Doe</h2>
+                <h2 className="text-xl font-black">{user?.name || "—"}</h2>
                 <StatusBadge>User</StatusBadge>
               </div>
-              <p className="mt-2 text-sm text-white/55">john.doe@email.com</p>
+              <p className="mt-2 text-sm text-white/55">{user?.email}</p>
             </div>
           </div>
           <div className="mt-8 flex items-end justify-between gap-4">
             <p className="text-sm text-white/55">
               Member since
-              <span className="mt-1 block font-semibold text-white/75">
-                15 Mar 2024
-              </span>
+              <span className="mt-1 block font-semibold text-white/75">{memberSince}</span>
             </p>
             <Link
               href="/dashboard/user/profile-settings"
@@ -95,22 +168,38 @@ export default function Page() {
           <div className="relative max-w-xl">
             <div className="flex flex-wrap items-center gap-3">
               <h2 className="text-xl font-black">Trainer Application</h2>
-              <StatusBadge tone={hasApplied ? "orange" : "blue"}>
-                {hasApplied ? "Pending" : "Not Applied"}
+              <StatusBadge tone={hasApplied ? getStatusTone(application?.status) : "blue"}>
+                {hasApplied ? applicationStatus : "Not Applied"}
               </StatusBadge>
             </div>
             {hasApplied ? (
               <div className="mt-5 space-y-4">
                 <p className="text-sm leading-6 text-white/70">
-                  Your application is currently under review by our admin team.
+                  Your application is currently{" "}
+                  {applicationStatus === "Approved"
+                    ? "approved! You are now a trainer."
+                    : applicationStatus === "Rejected"
+                    ? "rejected by the admin team."
+                    : "under review by our admin team."}
                 </p>
-                <p className="text-sm text-white/55">
-                  Submitted on: 18 May 2024
-                </p>
-                <div className="rounded-md border border-orange-300/20 bg-orange-400/5 px-4 py-3 text-sm text-white/65">
-                  We will notify you once there is an update on your
-                  application.
-                </div>
+                {application.createdAt && (
+                  <p className="text-sm text-white/55">
+                    Submitted on:{" "}
+                    {new Intl.DateTimeFormat("en", { dateStyle: "medium" }).format(
+                      new Date(application.createdAt)
+                    )}
+                  </p>
+                )}
+                {application.feedback && (
+                  <div className="rounded-md border border-orange-300/20 bg-orange-400/5 px-4 py-3 text-sm text-white/65">
+                    Admin feedback: {application.feedback}
+                  </div>
+                )}
+                {applicationStatus === "Pending" && (
+                  <div className="rounded-md border border-orange-300/20 bg-orange-400/5 px-4 py-3 text-sm text-white/65">
+                    We will notify you once there is an update on your application.
+                  </div>
+                )}
               </div>
             ) : (
               <div className="mt-5 space-y-4">
@@ -129,7 +218,7 @@ export default function Page() {
                   </Link>
                 </div>
                 <div className="rounded-md border border-blue-300/20 bg-blue-400/5 px-4 py-3 text-sm text-white/65">
-                  No application has been applied from this account.
+                  No application has been submitted from this account.
                 </div>
               </div>
             )}
@@ -139,59 +228,39 @@ export default function Page() {
 
       <div className="mt-5 grid gap-5 xl:grid-cols-2">
         <Panel>
-          <h2 className="text-lg font-black">Upcoming Class</h2>
-          <div className="mt-5 flex gap-4">
-            <Image
-              src={dashboardImages.upcomingImage}
-              alt="Yoga Flow class"
-              width={140}
-              height={100}
-              className="h-24 w-32 rounded-md object-cover"
-              placeholder="blur"
-            />
-            <div className="min-w-0 flex-1">
-              <h3 className="text-lg font-black">Yoga Flow</h3>
-              <p className="mt-1 text-sm text-white/55">with Sarah Khan</p>
-              <p className="mt-4 text-sm text-white/65">
-                Mon, 20 May - 08:00 PM
-              </p>
-              <p className="mt-1 text-sm text-white/65">Premium Studio</p>
-            </div>
+          <h2 className="text-lg font-black">Quick Links</h2>
+          <div className="mt-5 grid grid-cols-2 gap-3">
+            {[
+              { label: "Browse Classes", href: "/classes" },
+              { label: "My Bookings", href: "/dashboard/user/booked-classes" },
+              { label: "Favorites", href: "/dashboard/user/favorite-classes" },
+              { label: "Apply as Trainer", href: "/dashboard/user/apply-trainer" },
+            ].map(({ label, href }) => (
+              <Link
+                key={label}
+                href={href}
+                className="flex h-14 items-center justify-center rounded-md border border-white/10 px-4 text-sm font-black text-white/70 transition hover:bg-white/5 hover:text-white"
+              >
+                {label}
+              </Link>
+            ))}
           </div>
-          <button
-            type="button"
-            className="mt-5 rounded-md border border-orange-500/60 px-5 py-3 text-sm font-black text-orange-300 transition hover:bg-orange-500 hover:text-white"
-          >
-            View Details
-          </button>
         </Panel>
 
         <Panel>
-          <h2 className="text-lg font-black">Progress Overview</h2>
-          <div className="mt-5 flex items-center gap-6">
-            <div className="grid h-32 w-32 shrink-0 place-items-center rounded-full bg-[conic-gradient(#22c55e_0_75%,#f59e0b_75%_91%,#ef4444_91%_100%)]">
-              <div className="grid h-24 w-24 place-items-center rounded-full bg-[#0c151d] text-3xl font-black">
-                75%
+          <h2 className="text-lg font-black">Activity Summary</h2>
+          <div className="mt-5 space-y-4 text-sm">
+            {[
+              { label: "Available Classes", value: isLoading ? "—" : (totalClasses ?? 0), color: "text-sky-300" },
+              { label: "Classes Booked", value: isLoading ? "—" : (bookingCount ?? 0), color: "text-green-300" },
+              { label: "Favorite Classes", value: isLoading ? "—" : (favoritesCount ?? 0), color: "text-orange-300" },
+              { label: "Application Status", value: isLoading ? "—" : applicationStatus, color: "text-blue-300" },
+            ].map(({ label, value, color }) => (
+              <div key={label} className="flex items-center justify-between border-b border-white/5 pb-4 last:border-0 last:pb-0">
+                <span className="text-white/60">{label}</span>
+                <strong className={color}>{value}</strong>
               </div>
-            </div>
-            <div className="min-w-0 flex-1 space-y-4 text-sm">
-              {[
-                ["Completed", "18", "bg-green-500", "text-green-300"],
-                ["Booked", "12", "bg-orange-400", "text-orange-300"],
-                ["Canceled", "2", "bg-red-400", "text-red-300"],
-              ].map(([label, value, dot, color]) => (
-                <p
-                  key={label}
-                  className="flex items-center justify-between gap-4 text-white/70"
-                >
-                  <span className="flex items-center gap-2">
-                    <span className={`h-3 w-3 rounded-full ${dot}`} />
-                    {label}
-                  </span>
-                  <strong className={color}>{value}</strong>
-                </p>
-              ))}
-            </div>
+            ))}
           </div>
         </Panel>
       </div>

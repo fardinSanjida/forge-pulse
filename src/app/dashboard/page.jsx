@@ -4,18 +4,36 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useSession } from "@/lib/auth-client";
 import { getDashboardHref } from "@/lib/dashboard-route";
+import { apiUrl } from "@/lib/api";
 
 export default function DashboardPage() {
   const router = useRouter();
   const { data: session, isPending } = useSession();
 
   useEffect(() => {
-    if (isPending) {
-      return;
-    }
+    if (isPending) return;
 
     if (!session?.user) {
       router.replace("/login?redirectTo=/dashboard");
+      return;
+    }
+
+    const pendingRole = sessionStorage.getItem("fp_pending_role");
+
+    if (pendingRole) {
+      sessionStorage.removeItem("fp_pending_role");
+
+      fetch(apiUrl("/api/auth/issue-cookie"), {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: session.user.email, role: pendingRole }),
+      })
+        .catch(() => {})
+        .finally(() => {
+          router.replace(getDashboardHref(pendingRole));
+        });
+
       return;
     }
 

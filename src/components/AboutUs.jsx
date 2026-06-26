@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import hero2 from "../../asset/hero2.jpg";
 import strengthImage from "../../asset/image2.jpg";
 
@@ -72,7 +75,13 @@ function AboutUs() {
       <StatStrip />
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
-        <div className="relative mx-auto min-h-[430px] w-full max-w-[600px]">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="relative mx-auto min-h-[430px] w-full max-w-[600px]"
+        >
           <div className="absolute left-20 top-0 h-72 w-[58%] overflow-hidden rounded-tl-[5rem] rounded-tr-sm rounded-br-sm rounded-bl-sm sm:left-8 sm:h-80">
             <Image
               src={hero2}
@@ -96,9 +105,14 @@ function AboutUs() {
           <div className="absolute bottom-4 left-[34%] z-10 flex h-20 w-20 items-center justify-center rounded-full border-4 border-[#282828] bg-orange-500 shadow-2xl shadow-black/40 sm:h-24 sm:w-24">
             <span className="text-xl font-black tracking-tight">GYM</span>
           </div>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65, ease: "easeOut" }}
+        >
           <p className="text-sm font-black uppercase text-orange-400">
             About Us
           </p>
@@ -116,17 +130,21 @@ function AboutUs() {
           </p>
 
           <div className="mt-7 space-y-3">
-            {highlights.map((item) => (
-              <div
+            {highlights.map((item, index) => (
+              <motion.div
                 key={item}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, ease: "easeOut", delay: index * 0.1 }}
                 className="flex items-center justify-between bg-white/10 px-5 py-4 text-sm font-bold text-white/85"
               >
                 <span>{item}</span>
                 <span className="text-orange-300">+</span>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <StatStrip reverse />
