@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
 const API_ORIGIN = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const isApiCall = (url) =>
+  url.startsWith(API_ORIGIN) ||
+  (url.startsWith("/api/") && !url.startsWith("/api/auth/"));
 
 export default function GlobalLoader() {
   const [visible, setVisible] = useState(false);
@@ -54,7 +57,7 @@ export default function GlobalLoader() {
 
     globalThis.fetch = async function patchedFetch(input, init) {
       const url = typeof input === "string" ? input : input instanceof URL ? input.href : input?.url ?? "";
-      const isApi = url.startsWith(API_ORIGIN);
+      const isApi = isApiCall(url);
 
       if (isApi) start();
       try {
