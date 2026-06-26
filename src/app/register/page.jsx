@@ -91,7 +91,7 @@ export default function RegisterPage() {
       }
 
       try {
-        await fetch(apiUrl("/api/auth/issue-cookie"), {
+        await fetch(apiUrl("/api/user-token"), {
           method: "POST",
           credentials: "include",
           headers: { "Content-Type": "application/json" },

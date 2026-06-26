@@ -72,7 +72,7 @@ function LoginForm() {
 
       // attempt to set HttpOnly JWT cookie on server for this user
       try {
-        await fetch(apiUrl("/api/auth/issue-cookie"), {
+        await fetch(apiUrl("/api/user-token"), {
           method: "POST",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
@@ -112,7 +112,7 @@ function LoginForm() {
 
       // Issue JWT cookie with the selected role
       try {
-        await fetch(apiUrl("/api/auth/issue-cookie"), {
+        await fetch(apiUrl("/api/user-token"), {
           method: "POST",
           credentials: "include",
           headers: { "Content-Type": "application/json" },

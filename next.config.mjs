@@ -6,8 +6,10 @@ const nextConfig = {
     const serverUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
     return [
       {
-        // Forward all /api/* to the Express server EXCEPT /api/auth/* (handled by better-auth)
-        source: "/api/:path((?!auth).*)",
+        // Forward /api/* to the Express server.
+        // Next.js filesystem routes (app/api/auth/[...all]) take priority,
+        // so better-auth's /api/auth/* is never touched by this rewrite.
+        source: "/api/:path*",
         destination: `${serverUrl}/api/:path*`,
       },
     ];

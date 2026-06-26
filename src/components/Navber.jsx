@@ -46,7 +46,7 @@ function Navber() {
 const handleLogout = async () => {
   try {
     // 1. Call backend logout endpoint (IMPORTANT)
-    await fetch(apiUrl("/api/auth/logout"), {
+    await fetch(apiUrl("/api/logout"), {
       method: "POST",
       credentials: "include",
     });
